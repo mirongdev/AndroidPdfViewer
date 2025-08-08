@@ -6,10 +6,10 @@ plugins {
 
 android {
     namespace 'com.github.barteksc.pdfviewer'
-    compileSdk 35
+    compileSdk 31
     ndkVersion "21.4.7075529"
     defaultConfig {
-        minSdk 23
+        minSdk 19
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -47,7 +47,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.mirongdev'
             artifactId = 'android-pdf-viewer'
-            version = '0.23'
+            version = '0.24'
 
             afterEvaluate {
                 from components.release
