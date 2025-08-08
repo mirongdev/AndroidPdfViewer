@@ -6,10 +6,10 @@ plugins {
 
 android {
     namespace 'com.github.barteksc.pdfviewer'
-    compileSdk 31
-    ndkVersion "21.4.7075529"
+    compileSdk 34
+
     defaultConfig {
-        minSdk 19
+        minSdk 24
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -35,66 +35,23 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.3.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.7.0'
 
-    //noinspection Aligned16KB
-//    api 'com.github.mhiew:pdfium-android:1.9.2'
-//    api 'com.github.mirongdev:pdfium-android:2.0.0'
-    api 'com.github.mirongdev:PdfiumAndroid:0.6'
-//    api 'com.github.mirongdev:PdfiumAndroid:0.5'
+    api 'com.github.mhiew:pdfium-android:1.9.2'
 }
 
 publishing {
     publications {
         release(MavenPublication) {
+//            groupId = 'io.jitpack'
+//            artifactId = 'library'
+//            version = '1.0'
+
             groupId = 'com.github.mirongdev'
-            artifactId = 'android-pdf-viewer'
-            version = '0.24'
+            artifactId = 'AndroidPdfViewer2'
+            version = '1.1'
 
             afterEvaluate {
                 from components.release
-//                from components["release"]
             }
-
-//            artifact sourcesJar
-//            artifact javadocJar
-
-            pom {
-                name.set("Android Pdf Viewer")
-                description.set("PDF viewer library for Android")
-                url.set("https://github.com/mirongdev/android-pdf-viewer")
-                licenses {
-                    license {
-                        name.set("Apache License, Version 2.0")
-                        url.set("http://www.apache.org/licenses/LICENSE-2.0")
-                    }
-                }
-                developers {
-                    developer {
-                        id.set("mirongdev")
-                        name.set("Mirong Dev")
-                    }
-                }
-                scm {
-                    connection.set("scm:git:github.com/mirongdev/android-pdf-viewer.git")
-                    developerConnection.set("scm:git:ssh://github.com/mirongdev/android-pdf-viewer.git")
-                    url.set("https://github.com/mirongdev/android-pdf-viewer")
-                }
-            }
-
         }
     }
 }
-
-/**
- * Skip signing jika build di JitPack (env var JITPACK true)
- * atau kalau property signing.keyId tidak tersedia
- */
-tasks.withType(Sign).configureEach {
-    onlyIf {
-        !System.getenv("JITPACK").equalsIgnoreCase("true") &&
-                project.hasProperty("signing.keyId")
-    }
-}
-
-//signing {
-//    sign publishing.publications
-//}
