@@ -47,11 +47,11 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.mirongdev'
             artifactId = 'android-pdf-viewer'
-            version = '0.21'
+            version = '0.22'
 
             afterEvaluate {
-//                from components.release
-                from components["release"]
+                from components.release
+//                from components["release"]
             }
 
 //            artifact sourcesJar
