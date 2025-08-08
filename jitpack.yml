@@ -1,3 +1,8 @@
 jdk:
   - openjdk17
-
+before_install:
+  - yes | sdkmanager "platforms;android-35"
+  - yes | sdkmanager "platforms;android-36"
+  - sdk install java 17.0.14-amzn
+  - sdk use java 17.0.14-amzn
+  - ./gradlew clean build publishToMavenLocal
