@@ -10,3 +10,9 @@ buildscript {
     }
 }
 
+
+tasks.withType(Javadoc).configureEach {
+    enabled = false
+}
+
+
