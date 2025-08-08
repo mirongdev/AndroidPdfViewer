@@ -1,4 +1,4 @@
-//include ':library'
+include ':library'
 include ':android-pdf-viewer'
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
