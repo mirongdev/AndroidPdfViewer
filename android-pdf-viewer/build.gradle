@@ -52,6 +52,48 @@ publishing {
             afterEvaluate {
                 from components.release
             }
+
+//            artifact sourcesJar
+//            artifact javadocJar
+
+            pom {
+                name.set("Android Pdf Viewer")
+                description.set("PDF viewer library for Android")
+                url.set("https://github.com/mirongdev/android-pdf-viewer")
+                licenses {
+                    license {
+                        name.set("Apache License, Version 2.0")
+                        url.set("http://www.apache.org/licenses/LICENSE-2.0")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("mirongdev")
+                        name.set("Mirong Dev")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:github.com/mirongdev/android-pdf-viewer.git")
+                    developerConnection.set("scm:git:ssh://github.com/mirongdev/android-pdf-viewer.git")
+                    url.set("https://github.com/mirongdev/android-pdf-viewer")
+                }
+            }
+
         }
     }
 }
+
+/**
+ * Skip signing jika build di JitPack (env var JITPACK true)
+ * atau kalau property signing.keyId tidak tersedia
+ */
+tasks.withType(Sign).configureEach {
+    onlyIf {
+        !System.getenv("JITPACK").equalsIgnoreCase("true") &&
+                project.hasProperty("signing.keyId")
+    }
+}
+
+//signing {
+//    sign publishing.publications
+//}
