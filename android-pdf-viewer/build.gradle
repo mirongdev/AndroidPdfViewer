@@ -35,6 +35,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.3.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.7.0'
 
+    //noinspection Aligned16KB
     api 'com.github.mhiew:pdfium-android:1.9.2'
 //    api 'com.github.mirongdev:pdfium-android:2.0.0'
 //    api 'com.github.mirongdev:PdfiumAndroid:0.6'
@@ -46,7 +47,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.mirongdev'
             artifactId = 'android-pdf-viewer'
-            version = '3.2.0-beta.4'
+            version = '0.7'
 
             afterEvaluate {
                 from components.release
