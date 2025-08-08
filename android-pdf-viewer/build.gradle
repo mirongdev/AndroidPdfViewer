@@ -47,7 +47,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.mirongdev'
             artifactId = 'android-pdf-viewer'
-            version = '0.7'
+            version = '0.20'
 
             afterEvaluate {
 //                from components.release
