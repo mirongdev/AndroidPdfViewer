@@ -37,7 +37,8 @@ dependencies {
 
 //    api 'com.github.mhiew:pdfium-android:1.9.2'
 //    api 'com.github.mirongdev:pdfium-android:2.0.0'
-    api 'com.github.mirongdev:PdfiumAndroid:0.6'
+//    api 'com.github.mirongdev:PdfiumAndroid:0.6'
+    api 'com.github.mirongdev:PdfiumAndroid:0.5'
 }
 
 publishing {
