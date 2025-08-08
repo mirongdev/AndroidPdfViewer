@@ -16,3 +16,6 @@ tasks.withType(Javadoc).configureEach {
 }
 
 
+tasks.withType(Javadoc).all {
+    enabled = false
+}

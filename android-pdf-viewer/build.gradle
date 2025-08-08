@@ -50,7 +50,8 @@ publishing {
             version = '0.7'
 
             afterEvaluate {
-                from components.release
+//                from components.release
+                from components["release"]
             }
 
 //            artifact sourcesJar
